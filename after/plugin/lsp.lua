@@ -1,6 +1,6 @@
 local lsp = require('lsp-zero').preset({})
 
-lsp.on_attach(function(client, bufnr)
+lsp.on_attach(function(_, bufnr)
   -- see :help lsp-zero-keybindings
   lsp.default_keymaps({buffer = bufnr})
 end)
@@ -8,13 +8,8 @@ end)
 lsp.ensure_installed({
 	'lua_ls',
 	'pylsp',
-	'rust_analyzer'
+	'rust_analyzer',
+	'zls'
 })
-
--- lsp.setup_servers({ 'rust_analyzer' })
-
--- require('lspconfig').rust_analyzer.setup({})
-
--- require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 
 lsp.setup()
