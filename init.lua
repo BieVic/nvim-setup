@@ -107,11 +107,16 @@ require("lazy").setup({
         capabilities = vim.lsp.protocol.make_client_capabilities(),
         settings = {
           ["rust-analyzer"] = {
-            cargo = {
-              allFeatures = true,
+            imports = {
+              granularity = {
+                group = "module",
+              },
+              prefix = "self",
             },
-            checkOnSave = {
-              command = "clippy",
+            cargo = {
+              buildScripts = {
+                enable = true,
+              },
             },
           },
         },
